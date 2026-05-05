@@ -1,148 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>💘 Love Match | TMK</title>
-  <link rel="stylesheet" href="match.css"/>
+  <title>TMK | Taiwo Mayowa Krash</title>
+  <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
-  <!-- FLOATING HEARTS BACKGROUND -->
-  <div class="hearts-bg" id="heartsBg"></div>
-
   <!-- NAV -->
   <nav>
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
-    <div class="nav-logo">💘 Love Match</div>
+    <div class="logo"><span class="logo-tmk">TMK</span><span class="logo-dot"> pot</span></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#projects" onclick="toggleMenu()">Projects</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-badge">✨ Name Compatibility Calculator</div>
-    <h1>Are You <span>Made</span> For Each Other?</h1>
-    <p>Enter both names and discover your love compatibility score</p>
-  </section>
-
-  <!-- CALCULATOR -->
-  <section class="calculator">
-    <div class="calc-card">
-
-      <!-- NAMES INPUT -->
-      <div class="names-row">
-        <div class="name-field">
-          <label><i class="fas fa-heart"></i> Your Name</label>
-          <input type="text" id="name1" placeholder="Enter first name..." maxlength="40" oninput="clearResult()"/>
-        </div>
-        <div class="amp">
-          <div class="amp-heart">💕</div>
-        </div>
-        <div class="name-field">
-          <label><i class="fas fa-heart"></i> Partner's Name</label>
-          <input type="text" id="name2" placeholder="Enter second name..." maxlength="40" oninput="clearResult()"/>
-        </div>
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="greeting">Hello, I'm</p>
+      <h1>Taiwo <span>Mayowa Krash</span></h1>
+      <p class="tagline" id="typedTagline"></p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn primary">View My Work</a>
+        <a href="#contact" class="btn outline">Hire Me</a>
       </div>
-
-      <button class="match-btn" onclick="calculateMatch()">
-        <i class="fas fa-magic"></i> Calculate Match
-      </button>
-
-      <!-- LOADING OVERLAY -->
-      <div class="loading-wrap" id="loadingWrap">
-        <div class="spinner-ring">
-          <div class="spinner-heart" id="spinnerHeart">💗</div>
-          <svg viewBox="0 0 100 100" class="spinner-svg">
-            <defs>
-              <linearGradient id="spinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#ff80b0"/>
-                <stop offset="100%" stop-color="#c0003c"/>
-              </linearGradient>
-            </defs>
-            <circle cx="50" cy="50" r="44" class="spinner-track"/>
-            <circle cx="50" cy="50" r="44" class="spinner-arc" id="spinnerArc"/>
-          </svg>
-        </div>
-        <p class="loading-text" id="loadingText">Analysing names...</p>
-        <div class="loading-dots"><span></span><span></span><span></span></div>
-      </div>
-
-      <!-- RESULT -->
-      <div class="result-wrap" id="resultWrap">
-
-        <div class="result-names" id="resultNames"></div>
-
-        <!-- HEART METER -->
-        <div class="heart-meter">
-          <div class="heart-icon" id="heartIcon">🤍</div>
-          <div class="meter-track">
-            <div class="meter-fill" id="meterFill"></div>
-          </div>
-          <div class="percent-display" id="percentDisplay">0%</div>
-        </div>
-
-        <!-- RESULT CARD -->
-        <div class="result-card" id="resultCard">
-          <div class="result-emoji" id="resultEmoji"></div>
-          <div class="result-tier" id="resultTier"></div>
-          <div class="result-message" id="resultMessage"></div>
-        </div>
-
-        <!-- SCORE BREAKDOWN -->
-        <div class="breakdown" id="breakdown"></div>
-
-        <!-- TRY AGAIN -->
-        <button class="try-btn" onclick="tryAgain()">
-          <i class="fas fa-redo"></i> Try Again
-        </button>
-
+    </div>
+    <div class="hero-avatar">
+      <div class="avatar-ring">
+        <div class="avatar-placeholder"><i class="fas fa-user"></i></div>
       </div>
     </div>
   </section>
 
-  <!-- TIERS LEGEND -->
-  <section class="tiers-section">
-    <h2>Compatibility Tiers</h2>
-    <div class="tiers-grid">
-      <div class="tier-card love">
-        <span class="tier-emoji">❤️‍🔥</span>
-        <span class="tier-range">80 – 100%</span>
-        <span class="tier-name">LOVE</span>
-        <span class="tier-desc">A deep, powerful connection</span>
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2 class="section-title">About <span>Me</span></h2>
+    <div class="about-grid">
+      <div class="about-info">
+        <p>I'm a multi-skilled creative professional passionate about building digital experiences, telling stories through design, and solving problems with technology.</p>
+        <div class="info-cards">
+          <div class="info-card"><i class="fas fa-user"></i><div><small>Name</small><strong>Taiwo Mayowa Krash</strong></div></div>
+          <div class="info-card"><i class="fas fa-birthday-cake"></i><div><small>Age</small><strong>19 Years</strong></div></div>
+          <div class="info-card"><i class="fas fa-phone"></i><div><small>Phone</small><strong>+234 9134244514</strong></div></div>
+          <div class="info-card"><i class="fas fa-envelope"></i><div><small>Email</small><strong>taiwomayowa552@email.com</strong></div></div>
+          <div class="info-card"><i class="fas fa-map-marker-alt"></i><div><small>Location</small><strong>Nigeria</strong></div></div>
+          <div class="info-card"><i class="fas fa-briefcase"></i><div><small>Status</small><strong>Available for Work</strong></div></div>
+        </div>
+        <a href="#" class="btn primary" download>Download CV <i class="fas fa-download"></i></a>
       </div>
-      <div class="tier-card affection">
-        <span class="tier-emoji">💗</span>
-        <span class="tier-range">60 – 79%</span>
-        <span class="tier-name">AFFECTION</span>
-        <span class="tier-desc">Strong feelings, great bond</span>
+      <div class="skills-wrap">
+        <h3>My Skills</h3>
+        <div class="skill"><span>HTML & CSS</span><div class="bar"><div style="width:95%"></div></div></div>
+        <div class="skill"><span>JavaScript</span><div class="bar"><div style="width:80%"></div></div></div>
+        <div class="skill"><span>Frontend Dev</span><div class="bar"><div style="width:85%"></div></div></div>
+        <div class="skill"><span>Backend Dev</span><div class="bar"><div style="width:70%"></div></div></div>
+        <div class="skill"><span>AI Training</span><div class="bar"><div style="width:75%"></div></div></div>
+        <div class="skill"><span>Graphics Design</span><div class="bar"><div style="width:88%"></div></div></div>
+        <div class="skill"><span>Social Media Marketing</span><div class="bar"><div style="width:82%"></div></div></div>
+        <div class="skill"><span>Comic Creation</span><div class="bar"><div style="width:78%"></div></div></div>
       </div>
-      <div class="tier-card friends">
-        <span class="tier-emoji">💛</span>
-        <span class="tier-range">50 – 59%</span>
-        <span class="tier-name">FRIENDS / SIBLINGS</span>
-        <span class="tier-desc">Close but more like family</span>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section alt">
+    <h2 class="section-title">What I <span>Do</span></h2>
+    <div class="services-grid">
+      <div class="service-card"><i class="fas fa-code"></i><h3>HTML & CSS Dev</h3><p>Crafting pixel-perfect, responsive web pages with clean semantic markup and modern CSS.</p></div>
+      <div class="service-card"><i class="fas fa-laptop-code"></i><h3>Frontend Development</h3><p>Building interactive UIs with JavaScript, React, and modern frontend frameworks.</p></div>
+      <div class="service-card"><i class="fas fa-server"></i><h3>Backend Development</h3><p>Developing robust APIs and server-side logic using Node.js, Python, and databases.</p></div>
+      <div class="service-card"><i class="fas fa-brain"></i><h3>AI Training</h3><p>Training and fine-tuning AI/ML models, data labeling, and prompt engineering.</p></div>
+      <div class="service-card"><i class="fas fa-bullhorn"></i><h3>Social Media Marketing</h3><p>Growing brands online through strategic content, campaigns, and audience engagement.</p></div>
+      <div class="service-card"><i class="fas fa-paint-brush"></i><h3>Graphics Design</h3><p>Creating stunning visuals, logos, banners, and brand identities using design tools.</p></div>
+      <div class="service-card"><i class="fas fa-book-open"></i><h3>Comic Creation</h3><p>Bringing stories to life through original comic art, storyboarding, and illustration.</p></div>
+      <div class="service-card"><i class="fas fa-mobile-alt"></i><h3>UI/UX Design</h3><p>Designing intuitive user experiences and beautiful interfaces for web and mobile.</p></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <h2 class="section-title">My <span>Projects</span></h2>
+    <p class="section-sub">Click any project to open it in full view and leave a review.</p>
+
+    <div class="projects-grid" id="projectsGrid"></div>
+
+    <!-- ADD PROJECT FORM -->
+    <div class="add-project-wrap">
+      <button class="btn primary" onclick="toggleAddForm()"><i class="fas fa-plus"></i> Add New Project</button>
+      <div class="add-form" id="addForm">
+        <h3>Add a Project</h3>
+        <input type="text" id="projTitle" placeholder="Project Title *" />
+        <input type="text" id="projCategory" placeholder="Category (e.g. Web Dev, Design, Marketing)" />
+        <textarea id="projDesc" placeholder="Short Description * (shown on card)" rows="2"></textarea>
+        <textarea id="projDetails" placeholder="Full Project Details (shown on project page)" rows="4"></textarea>
+        <input type="text" id="projTech" placeholder="Technologies used, comma separated (e.g. HTML, CSS, Figma)" />
+        <input type="url" id="projLink" placeholder="Live Demo URL (optional)" />
+        <input type="url" id="projImage" placeholder="Cover Image URL (optional)" />
+        <div class="form-row">
+          <button class="btn primary" onclick="addProject()">Add Project</button>
+          <button class="btn outline" onclick="toggleAddForm()">Cancel</button>
+        </div>
       </div>
-      <div class="tier-card bad">
-        <span class="tier-emoji">🩶</span>
-        <span class="tier-range">40 – 49%</span>
-        <span class="tier-name">BAD FRIENDS</span>
-        <span class="tier-desc">Tension and misalignment</span>
+    </div>
+  </section>
+
+  <!-- PROJECT MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" id="projectModal">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <img id="modalImg" src="" alt="" />
+      <div class="modal-body">
+        <span class="modal-tag" id="modalTag"></span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <div class="modal-actions">
+          <a id="modalOpenBtn" href="#" target="_blank" class="btn primary">Open Project <i class="fas fa-external-link-alt"></i></a>
+          <a id="modalLink" href="#" target="_blank" class="btn outline">Live Demo <i class="fas fa-globe"></i></a>
+        </div>
       </div>
-      <div class="tier-card enemy">
-        <span class="tier-emoji">💔</span>
-        <span class="tier-range">0 – 39%</span>
-        <span class="tier-name">ENEMIES</span>
-        <span class="tier-desc">Clash of personalities</span>
+      <div class="reviews-section">
+        <h3>Visitor Reviews</h3>
+        <div class="reviews-list" id="reviewsList"></div>
+        <div class="review-form">
+          <input type="text" id="reviewName" placeholder="Your Name" />
+          <div class="star-input" id="starInput">
+            <span onclick="setRating(1)">★</span><span onclick="setRating(2)">★</span>
+            <span onclick="setRating(3)">★</span><span onclick="setRating(4)">★</span>
+            <span onclick="setRating(5)">★</span>
+          </div>
+          <textarea id="reviewText" placeholder="Write your review..." rows="2"></textarea>
+          <button class="btn primary" onclick="submitReview()">Submit Review</button>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section alt">
+    <h2 class="section-title">Get In <span>Touch</span></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Have a project in mind or want to collaborate? Feel free to reach out!</p>
+        <div class="contact-item"><i class="fas fa-phone"></i><span>+234 9134244514</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><span>taiwomayowa552@email.com</span></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Nigeria</span></div>
+        <div class="socials">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-behance"></i></a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="sendMessage(event)" action="https://formspree.io/f/mykojwol" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="text" name="subject" placeholder="Subject" />
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="btn primary">Send Message <i class="fas fa-paper-plane"></i></button>
+        <p class="form-success" id="formSuccess">✅ Message sent! I'll get back to you soon.</p>
+      </form>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>Made with ❤️ by <strong>TMK</strong> — Taiwo Mayowa Krash</p>
-    <a href="index.html">← Back to Portfolio</a>
+    <p>© <span id="year"></span> <span class="footer-tmk">TMK</span> — Taiwo Mayowa Krash. Built with ❤️ and code.</p>
   </footer>
 
-  <script src="match.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project | TMK</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="project.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="logo">
+      <span class="logo-tmk">TMK</span><span class="logo-dot"> pot</span>
+    </a>
+    <a href="index.html#projects" class="btn outline" style="font-size:.85rem;padding:.5rem 1.2rem;">
+      <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+  </nav>
+
+  <!-- PROJECT HERO -->
+  <div class="proj-hero" id="projHero">
+    <div class="proj-hero-overlay"></div>
+    <div class="proj-hero-content">
+      <span class="proj-category" id="projCategory"></span>
+      <h1 id="projTitle">Loading...</h1>
+      <p id="projDesc"></p>
+      <div class="proj-tech" id="projTech"></div>
+      <div class="proj-actions" id="projActions"></div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="proj-main">
+
+    <!-- DETAILS -->
+    <section class="proj-section">
+      <h2><i class="fas fa-info-circle"></i> Project Details</h2>
+      <p id="projDetails" class="proj-details-text"></p>
+    </section>
+
+    <!-- SCREENSHOTS / GALLERY -->
+    <section class="proj-section" id="gallerySection">
+      <h2><i class="fas fa-images"></i> Gallery</h2>
+      <div class="proj-gallery" id="projGallery">
+        <div class="gallery-placeholder">
+          <i class="fas fa-image"></i>
+          <p>No screenshots added yet.</p>
+          <small>Add image URLs when creating or editing the project.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="proj-section">
+      <h2><i class="fas fa-chart-bar"></i> Project Stats</h2>
+      <div class="proj-stats" id="projStats"></div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="proj-section">
+      <h2><i class="fas fa-star"></i> Visitor Reviews</h2>
+      <div class="reviews-wrap">
+        <div class="reviews-list-full" id="reviewsListFull"></div>
+        <div class="review-form-full">
+          <h3>Leave a Review</h3>
+          <input type="text" id="reviewName" placeholder="Your Name"/>
+          <div class="star-input" id="starInput">
+            <span onclick="setRating(1)">★</span>
+            <span onclick="setRating(2)">★</span>
+            <span onclick="setRating(3)">★</span>
+            <span onclick="setRating(4)">★</span>
+            <span onclick="setRating(5)">★</span>
+          </div>
+          <textarea id="reviewText" placeholder="Share your thoughts about this project..." rows="4"></textarea>
+          <button class="btn primary" onclick="submitReview()">Submit Review <i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© <span id="year"></span> <span class="footer-tmk">TMK</span> — Taiwo Mayowa Krash. Built with ❤️ and code.</p>
+  </footer>
+
+  <script src="project.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recharge Card Generator | TMK</title>
+  <link rel="stylesheet" href="recharge.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    <div class="nav-logo"><i class="fas fa-sim-card"></i> Recharge Generator</div>
+  </nav>
+
+  <div class="page-wrap">
+
+    <!-- GENERATOR CARD -->
+    <div class="gen-card">
+      <h2>Generate Recharge Card</h2>
+
+      <!-- NETWORK -->
+      <label class="field-label">Select Network</label>
+      <div class="network-grid">
+        <button class="net-btn mtn"    onclick="selectNetwork('MTN')"     id="net-MTN">
+          <span class="net-logo">MTN</span>
+          <span class="net-ussd">*555*PIN#</span>
+        </button>
+        <button class="net-btn airtel" onclick="selectNetwork('Airtel')"  id="net-Airtel">
+          <span class="net-logo">Airtel</span>
+          <span class="net-ussd">*126*PIN#</span>
+        </button>
+        <button class="net-btn glo"    onclick="selectNetwork('Glo')"     id="net-Glo">
+          <span class="net-logo">Glo</span>
+          <span class="net-ussd">*123*PIN#</span>
+        </button>
+        <button class="net-btn mobile" onclick="selectNetwork('9mobile')" id="net-9mobile">
+          <span class="net-logo">9mobile</span>
+          <span class="net-ussd">*200*PIN#</span>
+        </button>
+      </div>
+
+      <!-- AMOUNT -->
+      <label class="field-label">Select Amount</label>
+      <div class="amount-grid">
+        <button class="amt-btn" onclick="selectAmount(100)"  id="amt-100">₦100</button>
+        <button class="amt-btn" onclick="selectAmount(200)"  id="amt-200">₦200</button>
+        <button class="amt-btn" onclick="selectAmount(500)"  id="amt-500">₦500</button>
+        <button class="amt-btn" onclick="selectAmount(1000)" id="amt-1000">₦1000</button>
+        <button class="amt-btn" onclick="selectAmount(2000)" id="amt-2000">₦2000</button>
+        <button class="amt-btn" onclick="selectAmount(5000)" id="amt-5000">₦5000</button>
+      </div>
+
+      <!-- QUANTITY -->
+      <label class="field-label">Quantity</label>
+      <input type="number" id="quantity" value="1" min="1" max="20" class="qty-input"/>
+
+      <!-- GENERATE BUTTON -->
+      <button class="gen-btn" onclick="generateCard()">
+        <i class="fas fa-bolt"></i> Generate Card
+      </button>
+
+      <!-- PREVIEW -->
+      <div class="preview-wrap" id="previewWrap">
+        <div class="preview-card" id="previewCard">
+          <div class="preview-network" id="previewNetwork"></div>
+          <div class="preview-ussd"    id="previewUssd"></div>
+          <div class="preview-amount"  id="previewAmount"></div>
+          <div class="preview-label">PIN</div>
+          <div class="preview-pin"    id="previewPin"></div>
+          <div class="preview-code-label">Phone Number</div>
+          <div class="preview-code"   id="previewCode"></div>
+        </div>
+
+        <!-- PHONE INPUT & LOAD -->
+        <div class="load-wrap">
+          <label class="field-label">Your Phone Number</label>
+          <div class="phone-row">
+            <input type="tel" id="phoneInput" placeholder="e.g. 08031234567" maxlength="11"/>
+            <button class="load-btn" onclick="loadCard()">
+              <i class="fas fa-sim-card"></i> Load Card
+            </button>
+          </div>
+          <div class="load-result" id="loadResult"></div>
+        </div>
+
+        <button class="save-btn" onclick="saveCard()">
+          <i class="fas fa-save"></i> Save Card
+        </button>
+      </div>
+    </div>
+
+    <!-- SAVED CARDS TABLE -->
+    <div class="table-card">
+      <div class="table-header">
+        <h2>Saved Cards <span id="cardCount">0</span></h2>
+        <div class="table-actions">
+          <input type="text" id="searchInput" placeholder="Search code or network..." oninput="renderTable()"/>
+          <button class="clear-btn" onclick="clearAll()"><i class="fas fa-trash"></i> Clear All</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Network</th>
+              <th>USSD Code</th>
+              <th>PIN</th>
+              <th>Amount</th>
+              <th>Phone No.</th>
+              <th>Status</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="cardsBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState">
+          <i class="fas fa-sim-card"></i>
+          <p>No cards saved yet. Generate one above!</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© <span id="year"></span> <strong>TMK</strong> — Taiwo Mayowa Krash</p>
+  </footer>
+
+  <script src="recharge.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+/* project.css — styles specific to project.html */
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo { text-decoration: none; }
+
+/* ── PROJECT HERO ─────────────────────────────────────────── */
+.proj-hero {
+  min-height: 55vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 7rem 6% 3.5rem;
+  position: relative;
+  background: linear-gradient(135deg, #1a0000 0%, #0a0a0a 50%, #1a0000 100%);
+  overflow: hidden;
+}
+.proj-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 60%, rgba(224,16,16,0.22) 0%, transparent 65%);
+}
+.proj-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.3) 60%, transparent 100%);
+}
+.proj-hero-content {
+  position: relative; z-index: 1;
+  max-width: 800px;
+}
+.proj-category {
+  display: inline-block;
+  font-size: .78rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--red2);
+  background: rgba(224,16,16,0.12);
+  border: 1px solid rgba(224,16,16,0.3);
+  padding: .3rem .9rem; border-radius: 50px;
+  margin-bottom: 1rem;
+}
+.proj-hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900; line-height: 1.1;
+  color: var(--white); margin-bottom: .8rem;
+}
+.proj-hero-content > p {
+  font-size: 1.1rem; color: var(--muted);
+  max-width: 600px; margin-bottom: 1.5rem;
+}
+.proj-tech {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  margin-bottom: 1.8rem;
+}
+.tech-tag {
+  font-size: .8rem; font-weight: 600;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--border);
+  color: var(--text); padding: .3rem .8rem;
+  border-radius: 50px;
+}
+.proj-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ── MAIN ─────────────────────────────────────────────────── */
+.proj-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 6% 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.proj-section h2 {
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--white); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: .6rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--border);
+}
+.proj-section h2 i { color: var(--red2); }
+.proj-details-text {
+  color: var(--muted); line-height: 1.8; font-size: 1rem;
+}
+
+/* ── GALLERY ──────────────────────────────────────────────── */
+.proj-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.proj-gallery img {
+  width: 100%; border-radius: var(--radius);
+  border: 1px solid var(--border);
+  object-fit: cover; aspect-ratio: 16/9;
+  transition: transform .25s;
+  cursor: pointer;
+}
+.proj-gallery img:hover { transform: scale(1.03); }
+.gallery-placeholder {
+  grid-column: 1 / -1;
+  text-align: center; padding: 3rem;
+  background: var(--card); border-radius: var(--radius);
+  border: 1px dashed var(--border); color: var(--muted);
+}
+.gallery-placeholder i { font-size: 2.5rem; margin-bottom: .8rem; display: block; color: var(--border); }
+
+/* ── STATS ────────────────────────────────────────────────── */
+.proj-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+.stat-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.2rem 1rem;
+  text-align: center; transition: border-color .2s;
+}
+.stat-card:hover { border-color: var(--red); }
+.stat-card .stat-val {
+  font-size: 2rem; font-weight: 900;
+  color: var(--red2); display: block; line-height: 1;
+}
+.stat-card .stat-label {
+  font-size: .8rem; color: var(--muted);
+  margin-top: .4rem; display: block;
+}
+
+/* ── REVIEWS ──────────────────────────────────────────────── */
+.reviews-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.reviews-list-full {
+  display: flex; flex-direction: column; gap: .75rem;
+  max-height: 420px; overflow-y: auto;
+}
+.review-form-full {
+  display: flex; flex-direction: column; gap: .75rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.5rem;
+}
+.review-form-full h3 { color: var(--white); margin-bottom: .3rem; }
+.review-form-full input,
+.review-form-full textarea {
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--text); padding: .7rem 1rem; border-radius: 8px;
+  font-size: .9rem; outline: none; font-family: inherit;
+}
+.review-form-full input:focus,
+.review-form-full textarea:focus { border-color: var(--red); }
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .proj-hero { padding-top: 5.5rem; }
+  .reviews-wrap { grid-template-columns: 1fr; }
+}
